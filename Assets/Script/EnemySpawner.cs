@@ -2,28 +2,28 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyPrefab;      // Префаб врага
-    public float spawnRate = 2f;        // Интервал спавна
-    public Transform[] spawnPoints;     // Массив точек спавна
+    public GameObject enemyPrefab;      
+    public float spawnRate = 2f;       
+    public Transform[] spawnPoints;    
 
-    private float timer = 0f;           // Таймер для отсчета времени между спавнами
+    private float timer = 0f;          
 
     void Update()
     {
-        // Увеличиваем таймер на время, прошедшее с последнего кадра
+       
         timer += Time.deltaTime;
 
-        // Если таймер превышает интервал, спавним врага и сбрасываем таймер
+       
         if (timer >= spawnRate)
         {
             SpawnEnemy();
-            timer = 0f;  // Сброс таймера
+            timer = 0f;  
         }
     }
 
     void SpawnEnemy()
     {
-        // Рандомно выбираем точку спавна
+      
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
         Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
     }

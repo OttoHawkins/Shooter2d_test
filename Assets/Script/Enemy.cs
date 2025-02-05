@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed = 2f;  // Это для скорости врага
+    public float speed = 2f;  
     private Transform player;
 
     void Start()
@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
         if (player != null)
         {
             Vector2 direction = (player.position - transform.position).normalized;
-            transform.Translate(direction * speed * Time.deltaTime);  // Это для движения врага
+            transform.Translate(direction * speed * Time.deltaTime);  
         }
     }
 

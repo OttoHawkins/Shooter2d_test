@@ -46,19 +46,19 @@ public class PlayerController : MonoBehaviour
 
     void RotateGunTowardsMouse()
     {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // Позиция курсора
-        Vector2 direction = (mousePos - gun.position).normalized; // Направление от пушки к курсору
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; // Вычисление угла
-        gun.rotation = Quaternion.Euler(new Vector3(0, 0, angle)); // Применяем вращение
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = (mousePos - gun.position).normalized; 
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; 
+        gun.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
     void RotatePlayer()
     {
-        if (moveInput.magnitude > 0)  // Если игрок двигается
+        if (moveInput.magnitude > 0) 
         {
-            float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg; // Вычисление угла
-            Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle)); // Вычисляем вращение
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);  // Вращаем персонажа
+            float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg; 
+            Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle)); 
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
     }
 }
